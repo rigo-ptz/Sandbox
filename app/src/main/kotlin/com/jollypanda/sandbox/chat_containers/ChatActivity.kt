@@ -25,12 +25,18 @@ class ChatActivity : AppCompatActivity(), GestureDetector.OnGestureListener {
         fun getStartIntent(context: Context) = Intent(context, ChatActivity::class.java)
     }
 
-    enum class State {
+    enum class ContainersState {
         OPENED,
         CLOSED
     }
 
-    private var state: State = State.OPENED
+    enum class MotionState {
+        CALM,
+        MOVE
+    }
+
+    private var state: ContainersState = ContainersState.OPENED
+    private var motionState: MotionState = MotionState.CALM
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -47,11 +53,13 @@ class ChatActivity : AppCompatActivity(), GestureDetector.OnGestureListener {
     private fun initGuests() {
         val detector = GestureDetectorCompat(this, this)
         rootView.setOnTouchListener { view, motionEvent ->
-            if (motionEvent.actionMasked == MotionEvent.ACTION_UP &&
-                    motionEvent.rawX < rootView.width / 2) {
+            if (motionEvent.actionMasked == MotionEvent.ACTION_UP
+                    && motionState == MotionState.MOVE
+                    && motionEvent.rawX < rootView.width / 2) {
                 openContainers()
                 return@setOnTouchListener true
             } else if (motionEvent.actionMasked == MotionEvent.ACTION_UP
+                    && motionState == MotionState.MOVE
                     && motionEvent.rawX >= rootView.width / 2) {
                 closeContainers()
                 return@setOnTouchListener true
@@ -67,7 +75,7 @@ class ChatActivity : AppCompatActivity(), GestureDetector.OnGestureListener {
                 override fun onGlobalLayout() {
                     fl1.x = (rootView.width - fl1.width).toFloat()
                     fl2.x = fl1.x + fl1.width
-                    state = State.CLOSED
+                    state = ContainersState.CLOSED
                     fl1.viewTreeObserver.removeOnGlobalLayoutListener(this)
                 }
             })
@@ -75,7 +83,7 @@ class ChatActivity : AppCompatActivity(), GestureDetector.OnGestureListener {
     }
 
     override fun onBackPressed() {
-        if (state == State.CLOSED) {
+        if (state == ContainersState.CLOSED) {
             finish()
             overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_right)
         } else
@@ -91,7 +99,8 @@ class ChatActivity : AppCompatActivity(), GestureDetector.OnGestureListener {
             fl2.x = x + fl1.width
         }
         openFl1Animation.start()
-        state = State.OPENED
+        state = ContainersState.OPENED
+        motionState = MotionState.CALM
     }
 
     private fun closeContainers() {
@@ -103,12 +112,14 @@ class ChatActivity : AppCompatActivity(), GestureDetector.OnGestureListener {
             fl2.x = x + fl1.width
         }
         openFl1Animation.start()
-        state = State.CLOSED
+        state = ContainersState.CLOSED
+        motionState = MotionState.CALM
     }
 
     override fun onScroll(e1: MotionEvent, e2: MotionEvent, dx: Float, dy: Float): Boolean {
         val dxx = e1.rawX - e2.rawX
         Log.e("SCROLL", "scroll on X = $dxx")
+        Log.e("SCROLL EVENT", "${e2.actionMasked}")
         if (fl1.x >= 0 && (fl1.x + fl1.width <= rootView.width)) {
             fl1.x -= dx
             fl2.x -= dx
@@ -116,21 +127,29 @@ class ChatActivity : AppCompatActivity(), GestureDetector.OnGestureListener {
             if (fl1.x < 0) {
                 fl1.x = 0f
                 fl2.x = fl1.width.toFloat()
-                state = State.OPENED
+                state = ContainersState.OPENED
             }
 
             if (fl1.x + fl1.width > rootView.width) {
                 fl1.x = (rootView.width - fl1.width).toFloat()
                 fl2.x = fl1.x + fl1.width
-                state = State.CLOSED
+                state = ContainersState.CLOSED
             }
         }
+        motionState = MotionState.MOVE
         return true
     }
 
     override fun onShowPress(p0: MotionEvent?) { }
 
-    override fun onSingleTapUp(p0: MotionEvent?): Boolean { return true }
+    override fun onSingleTapUp(ev: MotionEvent): Boolean {
+        if (state == ContainersState.CLOSED &&
+                ev.rawX > 0 && ev.rawX <= fl1.x) {
+            onBackPressed()
+        }
+        motionState = MotionState.CALM
+        return true
+    }
 
     override fun onDown(p0: MotionEvent?): Boolean { return true }
 
