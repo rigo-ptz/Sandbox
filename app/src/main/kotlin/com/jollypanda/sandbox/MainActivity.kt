@@ -17,7 +17,16 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         btnChat.setOnClickListener { startActivity(ChatActivity.getStartIntent(this)) }
-        checkRx()
+//        checkRx()
+        checkPlurals()
+    }
+    
+    private fun checkPlurals() {
+        (0..100).forEach {
+            val systemPlural = this.resources.getQuantityString(R.plurals.plurals_1, it, it)
+            val point = this.resources.getQuantityString(R.plurals.points, it, it)
+            Log.e("Plurals", "$systemPlural : $point")
+        }
     }
     
     private fun checkRx() {
