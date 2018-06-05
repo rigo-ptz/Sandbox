@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    app:startDestination="@id/navigationStartFragment">
+    <fragment
+        android:id="@+id/navigationStartFragment"
+        android:name="com.jollypanda.sandbox.navigation.NavigationStartFragment"
+        android:label="StartFragment"
+        tools:layout="@layout/fragment_navigation_start">
+        <action
+            android:id="@+id/actionFromStartToA"
+            app:destination="@id/navigationAFragment"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigationAFragment"
+        android:name="com.jollypanda.sandbox.navigation.NavigationAFragment"
+        android:label="AFragment"
+        tools:layout="@layout/fragment_navigation_a">
+        <action
+            android:id="@+id/actionFromAToB"
+            app:destination="@id/navigationBFragment"
+            app:popUpTo="@+id/navigationStartFragment"
+            app:popUpToInclusive="false"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigationBFragment"
+        android:name="com.jollypanda.sandbox.navigation.NavigationBFragment"
+        android:label="BFragment"
+        tools:layout="@layout/fragment_navigation_b"/>
+</navigation>
