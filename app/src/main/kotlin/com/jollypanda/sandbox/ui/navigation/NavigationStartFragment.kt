@@ -1,20 +1,22 @@
-package com.jollypanda.sandbox.navigation
+/*
+package com.jollypanda.sandbox.ui.navigation
 
 import android.content.Context
 import android.os.Bundle
-import android.support.v4.app.Fragment
+import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.NavHostFragment
 import com.jollypanda.sandbox.R
-import kotlinx.android.synthetic.main.fragment_navigation_start.*
 
+*/
 /**
  * @author Yamushev Igor
  * @since  05.06.18
- */
-class NavigationStartFragment : Fragment() {
+ *//*
+
+class NavigationStartFragment : androidx.fragment.app.Fragment() {
     
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View =
             inflater.inflate(R.layout.fragment_navigation_start, container, false)
@@ -30,4 +32,4 @@ class NavigationStartFragment : Fragment() {
         @JvmStatic
         fun newInstance(context: Context) = NavigationStartFragment()
     }
-}
+}*/

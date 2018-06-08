@@ -2,35 +2,43 @@
     package="com.jollypanda.sandbox"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
+    <uses-permission android:name="android.permission.INTERNET"/>
+
     <application
-        android:allowBackup="true"
+        android:name=".core.App"
+        android:allowBackup="false"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity
-            android:name=".navigation.NavigationHostActivity"
+        <!--<activity
+            android:name="com.jollypanda.sandbox.ui.navigation.NavigationHostActivity"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
-        </activity>
+        </activity>-->
         <activity
-            android:name=".MainActivity"
+            android:name=".ui.MainActivity"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW"/>
             </intent-filter>
-            <!--<intent-filter>
+            <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="android.intent.category.LAUNCHER"/>
-            </intent-filter>-->
+            </intent-filter>
         </activity>
         <activity
-            android:name=".chat_containers.ChatActivity"
+            android:name="com.jollypanda.sandbox.ui.chats.ChatActivity"
             android:screenOrientation="portrait"
             android:theme="@style/TransparentActivity"/>
+
+        <activity
+            android:name=".ui.reddit_paging.PagingActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme"/>
     </application>
 </manifest>

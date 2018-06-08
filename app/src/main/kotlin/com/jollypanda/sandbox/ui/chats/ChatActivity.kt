@@ -1,4 +1,4 @@
-package com.jollypanda.sandbox.chat_containers
+package com.jollypanda.sandbox.ui.chats
 
 import android.animation.ObjectAnimator
 import android.content.Context
@@ -35,8 +35,10 @@ class ChatActivity : AppCompatActivity(), GestureDetector.OnGestureListener {
         MOVE
     }
 
-    private var state: ContainersState = ContainersState.OPENED
-    private var motionState: MotionState = MotionState.CALM
+    private var state: ContainersState =
+            ContainersState.OPENED
+    private var motionState: MotionState =
+            MotionState.CALM
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -54,13 +56,13 @@ class ChatActivity : AppCompatActivity(), GestureDetector.OnGestureListener {
         val detector = GestureDetectorCompat(this, this)
         rootView.setOnTouchListener { view, motionEvent ->
             if (motionEvent.actionMasked == MotionEvent.ACTION_UP
-                    && motionState == MotionState.MOVE
-                    && motionEvent.rawX < rootView.width / 2) {
+                && motionState == MotionState.MOVE
+                && motionEvent.rawX < rootView.width / 2) {
                 openContainers()
                 return@setOnTouchListener true
             } else if (motionEvent.actionMasked == MotionEvent.ACTION_UP
-                    && motionState == MotionState.MOVE
-                    && motionEvent.rawX >= rootView.width / 2) {
+                       && motionState == MotionState.MOVE
+                       && motionEvent.rawX >= rootView.width / 2) {
                 closeContainers()
                 return@setOnTouchListener true
             } else {
@@ -144,7 +146,7 @@ class ChatActivity : AppCompatActivity(), GestureDetector.OnGestureListener {
 
     override fun onSingleTapUp(ev: MotionEvent): Boolean {
         if (state == ContainersState.CLOSED &&
-                ev.rawX > 0 && ev.rawX <= fl1.x) {
+            ev.rawX > 0 && ev.rawX <= fl1.x) {
             onBackPressed()
         }
         motionState = MotionState.CALM

@@ -1,4 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+</resources>
+<!--
+<?xml version="1.0" encoding="utf-8"?>
 <navigation
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:android="http://schemas.android.com/apk/res/android"
@@ -6,7 +11,7 @@
     app:startDestination="@id/navigationStartFragment">
     <fragment
         android:id="@+id/navigationStartFragment"
-        android:name="com.jollypanda.sandbox.navigation.NavigationStartFragment"
+        android:name="com.jollypanda.sandbox.ui.navigation.NavigationStartFragment"
         android:label="StartFragment"
         tools:layout="@layout/fragment_navigation_start">
         <action
@@ -16,7 +21,7 @@
 
     <fragment
         android:id="@+id/navigationAFragment"
-        android:name="com.jollypanda.sandbox.navigation.NavigationAFragment"
+        android:name="com.jollypanda.sandbox.ui.navigation.NavigationAFragment"
         android:label="AFragment"
         tools:layout="@layout/fragment_navigation_a">
         <action
@@ -28,7 +33,7 @@
 
     <fragment
         android:id="@+id/navigationBFragment"
-        android:name="com.jollypanda.sandbox.navigation.NavigationBFragment"
+        android:name="com.jollypanda.sandbox.ui.navigation.NavigationBFragment"
         android:label="BFragment"
         tools:layout="@layout/fragment_navigation_b"/>
-</navigation>
+</navigation>-->
