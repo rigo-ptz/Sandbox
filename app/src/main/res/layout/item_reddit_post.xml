@@ -10,6 +10,74 @@
     app:strokeColor="#e7e7e7"
     app:strokeWidth="0.5dp">
     <android.support.constraint.ConstraintLayout
+        android:id="@+id/clLoading"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="@dimen/dp16">
+        <TextView
+            android:id="@+id/tvScoreLoading"
+            android:layout_width="19dp"
+            android:layout_height="19dp"
+            android:layout_marginTop="@dimen/dp16"
+            android:layout_marginStart="@dimen/dp16"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:background="@android:color/darker_gray"/>
+
+        <TextView
+            android:id="@+id/tvTitleLine1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp16"
+            android:layout_marginStart="@dimen/dp8"
+            android:layout_marginEnd="@dimen/dp8"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/tvScoreLoading"
+            app:layout_constraintEnd_toStartOf="@+id/ivPostImageLoading"
+            android:textColor="@android:color/black"
+            android:background="@android:color/darker_gray"/>
+
+        <TextView
+            android:id="@+id/tvTitleLine2"
+            android:layout_width="140dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp8"
+            android:layout_marginTop="@dimen/dp4"
+            android:layout_marginEnd="@dimen/dp8"
+            app:layout_constraintTop_toBottomOf="@+id/tvTitleLine1"
+            app:layout_constraintStart_toEndOf="@+id/tvScoreLoading"
+            app:layout_constraintEnd_toStartOf="@+id/ivPostImageLoading"
+            app:layout_constraintHorizontal_bias="0"
+            android:textColor="@android:color/black"
+            android:background="@android:color/darker_gray"/>
+
+        <TextView
+            android:id="@+id/tvTitleLine3"
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp8"
+            android:layout_marginTop="@dimen/dp4"
+            android:layout_marginEnd="@dimen/dp8"
+            app:layout_constraintTop_toBottomOf="@+id/tvTitleLine2"
+            app:layout_constraintStart_toEndOf="@+id/tvScoreLoading"
+            app:layout_constraintEnd_toStartOf="@+id/ivPostImageLoading"
+            app:layout_constraintHorizontal_bias="0"
+            android:textColor="@android:color/black"
+            android:background="@android:color/darker_gray"/>
+
+        <ImageView
+            android:id="@+id/ivPostImageLoading"
+            android:layout_width="@dimen/dp64"
+            android:layout_height="@dimen/dp64"
+            android:layout_marginTop="@dimen/dp16"
+            android:layout_marginEnd="@dimen/dp16"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:srcCompat="@android:drawable/ic_menu_gallery"/>
+    </android.support.constraint.ConstraintLayout>
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/clContent"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingBottom="@dimen/dp16">

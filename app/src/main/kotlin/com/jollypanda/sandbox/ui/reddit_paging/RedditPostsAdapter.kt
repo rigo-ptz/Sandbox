@@ -1,4 +1,4 @@
-package com.jollypanda.sandbox.data.sources.network.paging
+package com.jollypanda.sandbox.ui.reddit_paging
 
 import android.annotation.SuppressLint
 import android.arch.paging.PagedListAdapter
@@ -10,6 +10,8 @@ import android.view.ViewGroup
 import com.bumptech.glide.Glide
 import com.jollypanda.sandbox.R
 import com.jollypanda.sandbox.data.sources.common.entities.RedditPost
+import com.jollypanda.sandbox.data.sources.network.paging.NetworkState
+import com.jollypanda.sandbox.data.sources.network.paging.Satus
 import kotlinx.android.synthetic.main.item_reddit_post.view.*
 
 /**
@@ -31,7 +33,6 @@ class RedditPostsAdapter : PagedListAdapter<RedditPost, RecyclerView.ViewHolder>
                 ViewTypes.ITEM_VIEW.ordinal -> RedditPostViewHolder.create(parent)
                 else -> throw IllegalArgumentException("unknown view type $viewType")
             }
-    
     
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) =
             when (getItemViewType(position)) {
@@ -72,11 +73,20 @@ class RedditPostViewHolder private constructor(itemView: View): RecyclerView.Vie
     
     @SuppressLint("CheckResult")
     fun bind(post: RedditPost?) {
-        itemView.tvTitle.text = post?.title
-        itemView.tvSubtitle.text = post?.author
-        itemView.tvScore.text = post?.score?.toString() ?: 0.toString()
-        
-        Glide.with(itemView.ivPostImage).load(post?.imageUrl).into(itemView.ivPostImage)
+        if (post == null) {
+            itemView.clLoading.visibility = View.VISIBLE
+            itemView.clContent.visibility = View.GONE
+        } else {
+            itemView.tvTitle.text = post?.title
+            itemView.tvSubtitle.text = post?.author
+            itemView.tvScore.text = post?.score?.toString() ?: 0.toString()
+    
+            Glide.with(itemView.ivPostImage).load(post?.imageUrl).into(itemView.ivPostImage)
+    
+            itemView.clLoading.visibility = View.GONE
+            itemView.clContent.visibility = View.VISIBLE
+        }
+       
     }
     
     companion object {
