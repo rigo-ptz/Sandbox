@@ -1,7 +1,7 @@
 package com.jollypanda.sandbox.data.repository
 
-import android.arch.paging.LivePagedListBuilder
-import android.arch.paging.PagedList
+import androidx.paging.LivePagedListBuilder
+import androidx.paging.PagedList
 import com.jollypanda.sandbox.data.repository.paging.RedditPostsBoundaryCallback
 import com.jollypanda.sandbox.data.repository.paging.RepoResultListing
 import com.jollypanda.sandbox.data.sources.common.entities.RedditPost

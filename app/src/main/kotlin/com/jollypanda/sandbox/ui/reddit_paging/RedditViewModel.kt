@@ -1,6 +1,6 @@
 package com.jollypanda.sandbox.ui.reddit_paging
 
-import android.arch.lifecycle.ViewModel
+import androidx.lifecycle.ViewModel
 import com.jollypanda.sandbox.core.di.inject
 
 /**

@@ -1,7 +1,7 @@
 package com.jollypanda.sandbox.ui
 
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatActivity
 import com.jollypanda.sandbox.R
 import com.jollypanda.sandbox.ui.chats.ChatActivity
 import com.jollypanda.sandbox.ui.reddit_paging.PagingActivity

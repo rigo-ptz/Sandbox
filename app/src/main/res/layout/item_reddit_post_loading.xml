@@ -1,4 +1,4 @@
-<android.support.design.card.MaterialCardView
+<com.google.android.material.card.MaterialCardView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -9,7 +9,7 @@
     android:layout_marginTop="@dimen/dp8"
     app:strokeColor="#e7e7e7"
     app:strokeWidth="0.5dp">
-    <android.support.constraint.ConstraintLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingBottom="@dimen/dp16">
@@ -73,6 +73,6 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:srcCompat="@android:drawable/ic_menu_gallery"/>
-    </android.support.constraint.ConstraintLayout>
-</android.support.design.card.MaterialCardView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</com.google.android.material.card.MaterialCardView>
 

@@ -1,7 +1,7 @@
 package com.jollypanda.sandbox.data.sources.network.paging
 
-import android.arch.lifecycle.MutableLiveData
-import android.arch.paging.ItemKeyedDataSource
+import androidx.lifecycle.MutableLiveData
+import androidx.paging.ItemKeyedDataSource
 import com.jollypanda.sandbox.data.sources.common.entities.RedditPost
 import com.jollypanda.sandbox.data.sources.network.RedditApi
 import java.io.IOException

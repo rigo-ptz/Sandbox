@@ -1,7 +1,7 @@
 package com.jollypanda.sandbox.data.repository.paging
 
-import android.arch.lifecycle.LiveData
-import android.arch.paging.PagedList
+import androidx.lifecycle.LiveData
+import androidx.paging.PagedList
 import com.jollypanda.sandbox.data.sources.network.paging.NetworkState
 
 /**

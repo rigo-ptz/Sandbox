@@ -1,19 +1,19 @@
 package com.jollypanda.sandbox.utils
 
-import android.arch.lifecycle.*
-import android.support.v4.app.Fragment
-import android.support.v4.app.FragmentActivity
+import androidx.lifecycle.*
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentActivity
 import kotlin.reflect.KClass
 
 /**
  * @author Yamushev Igor
  * @since  08.06.18
  */
-fun <T : ViewModel> FragmentActivity.viewModel(clazz: KClass<T>) = lazy {
+fun <T : ViewModel> androidx.fragment.app.FragmentActivity.viewModel(clazz: KClass<T>) = lazy {
     ViewModelProviders.of(this).get(clazz.java)
 }
 
-fun <T : ViewModel> Fragment.viewModel(clazz: KClass<T>) = lazy {
+fun <T : ViewModel> androidx.fragment.app.Fragment.viewModel(clazz: KClass<T>) = lazy {
     ViewModelProviders.of(this).get(clazz.java)
 }
 

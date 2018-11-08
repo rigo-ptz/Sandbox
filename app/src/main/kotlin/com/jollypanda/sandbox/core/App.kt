@@ -1,6 +1,6 @@
 package com.jollypanda.sandbox.core
 
-import android.support.multidex.MultiDexApplication
+import androidx.multidex.MultiDexApplication
 import com.jollypanda.sandbox.core.di.AppComponent
 import com.jollypanda.sandbox.core.di.DaggerAppComponent
 import com.jollypanda.sandbox.core.di.modules.ApplicationModule

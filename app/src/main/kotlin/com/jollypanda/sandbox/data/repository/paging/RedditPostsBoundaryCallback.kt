@@ -1,7 +1,7 @@
 package com.jollypanda.sandbox.data.repository.paging
 
-import android.arch.paging.PagedList
-import android.support.annotation.MainThread
+import androidx.paging.PagedList
+import androidx.annotation.MainThread
 import com.jollypanda.sandbox.data.repository.DbNetworkRedditPostsRepo
 import com.jollypanda.sandbox.data.sources.common.entities.RedditPost
 import com.jollypanda.sandbox.data.sources.network.RedditApi
