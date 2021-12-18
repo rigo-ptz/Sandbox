@@ -21,8 +21,9 @@
             </intent-filter>
         </activity>-->
         <activity
-            android:name=".ui.MainActivity"
-            android:screenOrientation="portrait">
+          android:name=".ui.MainActivity"
+          android:screenOrientation="fullSensor"
+          android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW"/>
             </intent-filter>
@@ -31,14 +32,13 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
+
         <activity
             android:name="com.jollypanda.sandbox.ui.chats.ChatActivity"
-            android:screenOrientation="portrait"
             android:theme="@style/TransparentActivity"/>
 
         <activity
             android:name=".ui.reddit_paging.PagingActivity"
-            android:screenOrientation="portrait"
             android:theme="@style/AppTheme"/>
     </application>
 </manifest>
